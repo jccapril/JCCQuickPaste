@@ -1,0 +1,554 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		116965E92D27CBB10050CA5E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 116965CF2D27CBB00050CA5E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 116965D62D27CBB00050CA5E;
+			remoteInfo = JCCQuickPaste;
+		};
+		116965F32D27CBB10050CA5E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 116965CF2D27CBB00050CA5E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 116965D62D27CBB00050CA5E;
+			remoteInfo = JCCQuickPaste;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		116965D72D27CBB00050CA5E /* JCCQuickPaste.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JCCQuickPaste.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		116965E82D27CBB10050CA5E /* JCCQuickPasteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JCCQuickPasteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		116965F22D27CBB10050CA5E /* JCCQuickPasteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JCCQuickPasteUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		116965D92D27CBB00050CA5E /* JCCQuickPaste */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = JCCQuickPaste;
+			sourceTree = "<group>";
+		};
+		116965EB2D27CBB10050CA5E /* JCCQuickPasteTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = JCCQuickPasteTests;
+			sourceTree = "<group>";
+		};
+		116965F52D27CBB10050CA5E /* JCCQuickPasteUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = JCCQuickPasteUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		116965D42D27CBB00050CA5E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		116965E52D27CBB10050CA5E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		116965EF2D27CBB10050CA5E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		116965CE2D27CBB00050CA5E = {
+			isa = PBXGroup;
+			children = (
+				116965D92D27CBB00050CA5E /* JCCQuickPaste */,
+				116965EB2D27CBB10050CA5E /* JCCQuickPasteTests */,
+				116965F52D27CBB10050CA5E /* JCCQuickPasteUITests */,
+				116965D82D27CBB00050CA5E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		116965D82D27CBB00050CA5E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				116965D72D27CBB00050CA5E /* JCCQuickPaste.app */,
+				116965E82D27CBB10050CA5E /* JCCQuickPasteTests.xctest */,
+				116965F22D27CBB10050CA5E /* JCCQuickPasteUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		116965D62D27CBB00050CA5E /* JCCQuickPaste */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 116965FC2D27CBB10050CA5E /* Build configuration list for PBXNativeTarget "JCCQuickPaste" */;
+			buildPhases = (
+				116965D32D27CBB00050CA5E /* Sources */,
+				116965D42D27CBB00050CA5E /* Frameworks */,
+				116965D52D27CBB00050CA5E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				116965D92D27CBB00050CA5E /* JCCQuickPaste */,
+			);
+			name = JCCQuickPaste;
+			packageProductDependencies = (
+			);
+			productName = JCCQuickPaste;
+			productReference = 116965D72D27CBB00050CA5E /* JCCQuickPaste.app */;
+			productType = "com.apple.product-type.application";
+		};
+		116965E72D27CBB10050CA5E /* JCCQuickPasteTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 116965FF2D27CBB10050CA5E /* Build configuration list for PBXNativeTarget "JCCQuickPasteTests" */;
+			buildPhases = (
+				116965E42D27CBB10050CA5E /* Sources */,
+				116965E52D27CBB10050CA5E /* Frameworks */,
+				116965E62D27CBB10050CA5E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				116965EA2D27CBB10050CA5E /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				116965EB2D27CBB10050CA5E /* JCCQuickPasteTests */,
+			);
+			name = JCCQuickPasteTests;
+			packageProductDependencies = (
+			);
+			productName = JCCQuickPasteTests;
+			productReference = 116965E82D27CBB10050CA5E /* JCCQuickPasteTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		116965F12D27CBB10050CA5E /* JCCQuickPasteUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 116966022D27CBB10050CA5E /* Build configuration list for PBXNativeTarget "JCCQuickPasteUITests" */;
+			buildPhases = (
+				116965EE2D27CBB10050CA5E /* Sources */,
+				116965EF2D27CBB10050CA5E /* Frameworks */,
+				116965F02D27CBB10050CA5E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				116965F42D27CBB10050CA5E /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				116965F52D27CBB10050CA5E /* JCCQuickPasteUITests */,
+			);
+			name = JCCQuickPasteUITests;
+			packageProductDependencies = (
+			);
+			productName = JCCQuickPasteUITests;
+			productReference = 116965F22D27CBB10050CA5E /* JCCQuickPasteUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		116965CF2D27CBB00050CA5E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					116965D62D27CBB00050CA5E = {
+						CreatedOnToolsVersion = 16.0;
+					};
+					116965E72D27CBB10050CA5E = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = 116965D62D27CBB00050CA5E;
+					};
+					116965F12D27CBB10050CA5E = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = 116965D62D27CBB00050CA5E;
+					};
+				};
+			};
+			buildConfigurationList = 116965D22D27CBB00050CA5E /* Build configuration list for PBXProject "JCCQuickPaste" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 116965CE2D27CBB00050CA5E;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 116965D82D27CBB00050CA5E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				116965D62D27CBB00050CA5E /* JCCQuickPaste */,
+				116965E72D27CBB10050CA5E /* JCCQuickPasteTests */,
+				116965F12D27CBB10050CA5E /* JCCQuickPasteUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		116965D52D27CBB00050CA5E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		116965E62D27CBB10050CA5E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		116965F02D27CBB10050CA5E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		116965D32D27CBB00050CA5E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		116965E42D27CBB10050CA5E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		116965EE2D27CBB10050CA5E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		116965EA2D27CBB10050CA5E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 116965D62D27CBB00050CA5E /* JCCQuickPaste */;
+			targetProxy = 116965E92D27CBB10050CA5E /* PBXContainerItemProxy */;
+		};
+		116965F42D27CBB10050CA5E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 116965D62D27CBB00050CA5E /* JCCQuickPaste */;
+			targetProxy = 116965F32D27CBB10050CA5E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		116965FA2D27CBB10050CA5E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		116965FB2D27CBB10050CA5E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		116965FD2D27CBB10050CA5E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = JCCQuickPaste/JCCQuickPaste.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4R855GB33C;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = jcc.JCCQuickPaste;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		116965FE2D27CBB10050CA5E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = JCCQuickPaste/JCCQuickPaste.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4R855GB33C;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = jcc.JCCQuickPaste;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		116966002D27CBB10050CA5E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4R855GB33C;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = jcc.JCCQuickPasteTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JCCQuickPaste.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/JCCQuickPaste";
+			};
+			name = Debug;
+		};
+		116966012D27CBB10050CA5E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4R855GB33C;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = jcc.JCCQuickPasteTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JCCQuickPaste.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/JCCQuickPaste";
+			};
+			name = Release;
+		};
+		116966032D27CBB10050CA5E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4R855GB33C;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = jcc.JCCQuickPasteUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = JCCQuickPaste;
+			};
+			name = Debug;
+		};
+		116966042D27CBB10050CA5E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4R855GB33C;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = jcc.JCCQuickPasteUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = JCCQuickPaste;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		116965D22D27CBB00050CA5E /* Build configuration list for PBXProject "JCCQuickPaste" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				116965FA2D27CBB10050CA5E /* Debug */,
+				116965FB2D27CBB10050CA5E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		116965FC2D27CBB10050CA5E /* Build configuration list for PBXNativeTarget "JCCQuickPaste" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				116965FD2D27CBB10050CA5E /* Debug */,
+				116965FE2D27CBB10050CA5E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		116965FF2D27CBB10050CA5E /* Build configuration list for PBXNativeTarget "JCCQuickPasteTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				116966002D27CBB10050CA5E /* Debug */,
+				116966012D27CBB10050CA5E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		116966022D27CBB10050CA5E /* Build configuration list for PBXNativeTarget "JCCQuickPasteUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				116966032D27CBB10050CA5E /* Debug */,
+				116966042D27CBB10050CA5E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 116965CF2D27CBB00050CA5E /* Project object */;
+}
