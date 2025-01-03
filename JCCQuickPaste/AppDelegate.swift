@@ -12,7 +12,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     var mainPanelController: MainPanelController?
 
-
+    let clipboard = Clipboard()
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
         mainPanelController = MainPanelController()
@@ -22,6 +23,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSEvent.addGlobalMonitorForEvents(matching: .keyDown) { [weak self] event in
             print("aaa")
             self?.handleKeyDown(event)
+        }
+        
+        clipboard.startListening()
+        clipboard.onNewCopy { (content) in
+            print(content)
         }
     }
 
