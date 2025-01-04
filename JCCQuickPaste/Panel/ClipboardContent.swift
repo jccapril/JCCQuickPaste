@@ -16,13 +16,13 @@ struct ClipboardContent {
         let result = NSMutableAttributedString()
         
         // 拼接纯文本
-        if let plainText {
-            let plainTextAttributed = NSAttributedString(string: plainText)
-            result.append(plainTextAttributed)
-        }
+//        if let plainText, !plainText.isEmpty {
+//            let plainTextAttributed = NSAttributedString(string: plainText)
+//            result.append(plainTextAttributed)
+//        }
         
         // 拼接 RTF 富文本
-        if let rtfData {
+        if let rtfData, !rtfData.isEmpty {
 
             if let rtfAttributed = NSAttributedString(rtf: rtfData, documentAttributes: nil) {
                 result.append(rtfAttributed)
@@ -30,7 +30,7 @@ struct ClipboardContent {
         }
         
         // 拼接 HTML 富文本
-        if let htmlData {
+        if let htmlData, !htmlData.isEmpty {
             if let htmlAttributed = NSAttributedString(html: htmlData, documentAttributes: nil) {
                 result.append(htmlAttributed)
             }

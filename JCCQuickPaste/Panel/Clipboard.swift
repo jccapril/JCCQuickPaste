@@ -57,6 +57,13 @@ class Clipboard {
         if let rtfData = pasteboard.data(forType: .rtf) {
             clipboardContent.rtfData = rtfData
             isChange = true
+//            let fileURL = URL(fileURLWithPath: "/Users/leaf/Downloads/rtf_content.rtf")
+//            do {
+//               try rtfData.write(to: fileURL)
+//            } catch {
+//                print("\(error)")
+//            }
+                
         }
         if isChange {
             for hook in hooks {
