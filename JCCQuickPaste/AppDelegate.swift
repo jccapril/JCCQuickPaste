@@ -19,27 +19,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         mainPanelController = MainPanelController()
         
         mainPanelController?.showPanel()
-        // 添加快捷键监听
-        NSEvent.addGlobalMonitorForEvents(matching: .keyDown) { [weak self] event in
-            print("aaa")
-            self?.handleKeyDown(event)
-        }
+
+        addListener()
         
-        clipboard.startListening()
-        clipboard.onNewCopy { (content) in
-            print(content)
-        }
     }
 
-    // 处理按键事件
-    func handleKeyDown(_ event: NSEvent) {
-        // 检查是否按下了 Command + O
-        if event.modifierFlags.contains(.command),   // 检查 Command 键
-           event.modifierFlags.contains(.option),    // 检查 Option 键
-           event.charactersIgnoringModifiers == "p" { // 检查按键字符
-            mainPanelController?.showPanel() // 显示面板
-        }
-    }
+
     
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
@@ -53,3 +38,36 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 }
 
+// MARK: - Listener
+extension AppDelegate {
+    
+    func addListener() {
+        addClipboardListener()
+        addKeyboardListener()
+    }
+    
+    func addClipboardListener() {
+        clipboard.startListening()
+        clipboard.onNewCopy {
+            ClipboardDataStorage.shared.add($0)
+            NotificationCenter.default.post(name: .clipboardContentDidChange, object: nil)
+        }
+    }
+    
+    func addKeyboardListener() {
+        // 添加快捷键监听
+        NSEvent.addGlobalMonitorForEvents(matching: .keyDown) { [weak self] event in
+            self?.handleKeyDown(event)
+        }
+    }
+    
+    // 处理按键事件
+    func handleKeyDown(_ event: NSEvent) {
+        // 检查是否按下了 Command + Shift + v
+        if event.modifierFlags.contains(.command),   // 检查 Command 键
+           event.modifierFlags.contains(.shift),    // 检查 Shift 键
+           event.charactersIgnoringModifiers == "v" { // 检查按键字符
+            mainPanelController?.showPanel() // 显示面板
+        }
+    }
+}

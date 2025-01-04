@@ -9,6 +9,8 @@ import Cocoa
 
 class MainPanel: NSPanel {
 
+    var dataSource: [ClipboardContent] = []
+    
     static let panelHeight: CGFloat = 300
     static let titleHeight: CGFloat = 20 // 标题高度
     
@@ -26,18 +28,11 @@ class MainPanel: NSPanel {
         return titleLabel
     }()
     
-    private lazy var scrollView: NSScrollView = {
-        // 创建 NSCollectionView
-        
+    private lazy var collectionView: NSCollectionView = {
         let collectionViewHeight = Self.panelHeight - Self.titleHeight - 40
         
         let collectionViewFrame = NSRect(x: 0, y: Self.titleHeight, width: frame.width, height: collectionViewHeight)
-        let scrollView = NSScrollView(frame: collectionViewFrame)
-        scrollView.borderType = .noBorder
-        scrollView.hasVerticalScroller = false
-        scrollView.hasHorizontalScroller = false
-        scrollView.scrollerInsets = NSEdgeInsets(top: 0, left: 0, bottom: -30, right: 0)
-
+        
         // 初始化 CollectionView
         let itemWidth: CGFloat = collectionViewHeight - 40
         let padding: CGFloat = 20
@@ -50,10 +45,29 @@ class MainPanel: NSPanel {
         
         let collectionView = NSCollectionView(frame: collectionViewFrame)
         collectionView.collectionViewLayout = layout
-        collectionView.register(MainPanelCollectionViewItem.self, forItemWithIdentifier: NSUserInterfaceItemIdentifier("MainPanelCollectionViewItem"))
+        
+        collectionView.register(ClipboardItem.self, forItemWithIdentifier: NSUserInterfaceItemIdentifier("ClipboardItem"))
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.backgroundColors = [NSColor.clear]
+        return collectionView
+    }()
+    
+    private lazy var scrollView: NSScrollView = {
+        // 创建 NSCollectionView
+        
+        let collectionViewHeight = Self.panelHeight - Self.titleHeight - 40
+        
+        let collectionViewFrame = NSRect(x: 0, y: Self.titleHeight, width: frame.width, height: collectionViewHeight)
+        let scrollView = NSScrollView(frame: collectionViewFrame)
+        scrollView.borderType = .noBorder
+        scrollView.hasVerticalScroller = false
+        scrollView.hasHorizontalScroller = false
+        scrollView.scrollerInsets = NSEdgeInsets(top: 0, left: 0, bottom: -30, right: 0)
+
+
+        
+
         scrollView.documentView = collectionView
         
         return scrollView
@@ -64,6 +78,7 @@ class MainPanel: NSPanel {
         super.init(contentRect: contentRect, styleMask: style, backing: backingStoreType, defer: flag)
         
         initializeUI()
+        addNotificaiton()
     }
     
 }
@@ -75,21 +90,29 @@ extension MainPanel {
         contentView?.addSubview(scrollView)
     }
     
+    func addNotificaiton() {
+        NotificationCenter.default.addObserver(self, selector: #selector(dataSourceDidChange), name: .clipboardContentDidChange, object: nil)
+    }
+    
+    @objc
+    func dataSourceDidChange() {
+        dataSource = ClipboardDataStorage.shared.dataSource.reversed()
+        collectionView.reloadData()
+    }
+    
 }
 
 
 extension MainPanel: NSCollectionViewDelegate, NSCollectionViewDataSource {
-    func numberOfSections(in collectionView: NSCollectionView) -> Int {
-        return 1
-    }
 
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        dataSource.count
     }
     
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
-        let item = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier("MainPanelCollectionViewItem"), for: indexPath) as! MainPanelCollectionViewItem
-//        item.textField?.stringValue = "Item \(indexPath.item)"
+        let item = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier("ClipboardItem"), for: indexPath) as! ClipboardItem
+        let content = dataSource[indexPath.item]
+        item.textLabel.attributedStringValue = content.attributedString
         return item
     }
 }
