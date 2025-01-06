@@ -7,30 +7,53 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="ClipboardItem" customModule="JCCQuickPaste" customModuleProvider="target">
             <connections>
-                <outlet property="textLabel" destination="fCT-LC-Ys0" id="Tdr-zs-Aj8"/>
+                <outlet property="textCountBGView" destination="0sX-O9-wOu" id="gog-iN-Avh"/>
+                <outlet property="textCountLabel" destination="p3H-s6-cns" id="EtV-5d-anT"/>
+                <outlet property="textLabel" destination="otv-QS-bOO" id="iIe-Jn-Lh2"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="Hz6-mo-xeY">
-            <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+            <rect key="frame" x="0.0" y="0.0" width="280" height="280"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="moL-HW-fEV">
-                    <rect key="frame" x="18" y="444" width="37" height="16"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="fCT-LC-Ys0">
+                <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="otv-QS-bOO">
+                    <rect key="frame" x="18" y="244" width="92" height="16"/>
+                    <textFieldCell key="cell" selectable="YES" enabled="NO" title="Multiline Label" id="kaP-YB-eer">
                         <font key="font" usesAppearanceFont="YES"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="0sX-O9-wOu">
+                    <rect key="frame" x="0.0" y="0.0" width="280" height="40"/>
+                    <subviews>
+                        <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="p3H-s6-cns">
+                            <rect key="frame" x="124" y="13" width="33" height="14"/>
+                            <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="3kS-58-kTx">
+                                <font key="font" metaFont="system" size="11"/>
+                                <color key="textColor" name="tertiaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="p3H-s6-cns" firstAttribute="centerX" secondItem="0sX-O9-wOu" secondAttribute="centerX" id="9cH-f4-HRc"/>
+                        <constraint firstItem="p3H-s6-cns" firstAttribute="centerY" secondItem="0sX-O9-wOu" secondAttribute="centerY" id="O7m-vx-MbF"/>
+                        <constraint firstAttribute="height" constant="40" id="kdU-bf-3fb"/>
+                    </constraints>
+                </customView>
             </subviews>
             <constraints>
-                <constraint firstItem="moL-HW-fEV" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="C5r-fo-U3s"/>
-                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="moL-HW-fEV" secondAttribute="trailing" constant="20" id="XYY-gj-DGp"/>
-                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="moL-HW-fEV" secondAttribute="bottom" constant="20" id="XuS-Oy-0AO"/>
-                <constraint firstItem="moL-HW-fEV" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" id="ZmD-vh-0Hg"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="otv-QS-bOO" secondAttribute="bottom" constant="20" id="7w6-pY-ckF"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="otv-QS-bOO" secondAttribute="trailing" constant="20" id="A1G-CZ-CTT"/>
+                <constraint firstItem="0sX-O9-wOu" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="JdQ-mp-3w5"/>
+                <constraint firstItem="otv-QS-bOO" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" id="L49-Aw-P6A"/>
+                <constraint firstItem="otv-QS-bOO" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="RRD-tq-KOM"/>
+                <constraint firstAttribute="bottom" secondItem="0sX-O9-wOu" secondAttribute="bottom" id="dUf-5C-Rlh"/>
+                <constraint firstAttribute="trailing" secondItem="0sX-O9-wOu" secondAttribute="trailing" id="vrz-je-zlH"/>
             </constraints>
             <point key="canvasLocation" x="14" y="141"/>
         </customView>

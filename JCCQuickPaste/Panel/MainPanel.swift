@@ -11,7 +11,8 @@ class MainPanel: NSPanel {
 
     var dataSource: [ClipboardContent] = []
     
-    static let panelHeight: CGFloat = 300
+    var lastContent: ClipboardContent?
+    
     static let titleHeight: CGFloat = 20 // 标题高度
     
     private lazy var titleLabel: NSTextField = {
@@ -19,7 +20,7 @@ class MainPanel: NSPanel {
         let titleWidth: CGFloat = 300 // 标题宽度
         
         titleLabel.frame = NSRect(x: (frame.width - titleWidth) / 2,
-                                  y: Self.panelHeight - Self.titleHeight - 10, // 距离顶部 10 像素
+                                  y: AppCenter.panelHeight - Self.titleHeight - 20, // 距离顶部 10 像素
                                   width: titleWidth,
                                   height: Self.titleHeight)
         titleLabel.font = NSFont.systemFont(ofSize: 16, weight: .bold)
@@ -29,7 +30,7 @@ class MainPanel: NSPanel {
     }()
     
     private lazy var collectionView: NSCollectionView = {
-        let collectionViewHeight = Self.panelHeight - Self.titleHeight - 40
+        let collectionViewHeight = AppCenter.panelHeight - Self.titleHeight - 40
         
         let collectionViewFrame = NSRect(x: 0, y: Self.titleHeight, width: frame.width, height: collectionViewHeight)
         
@@ -46,17 +47,19 @@ class MainPanel: NSPanel {
         let collectionView = NSCollectionView(frame: collectionViewFrame)
         collectionView.collectionViewLayout = layout
         
-        collectionView.register(ClipboardItem.self, forItemWithIdentifier: NSUserInterfaceItemIdentifier("ClipboardItem"))
+        collectionView.register(ClipboardItem.self, forItemWithIdentifier: .clipboardItemID)
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.backgroundColors = [NSColor.clear]
+        // 启用选择
+        collectionView.isSelectable = true
         return collectionView
     }()
     
     private lazy var scrollView: NSScrollView = {
         // 创建 NSCollectionView
         
-        let collectionViewHeight = Self.panelHeight - Self.titleHeight - 40
+        let collectionViewHeight = AppCenter.panelHeight - Self.titleHeight - 40
         
         let collectionViewFrame = NSRect(x: 0, y: Self.titleHeight, width: frame.width, height: collectionViewHeight)
         let scrollView = NSScrollView(frame: collectionViewFrame)
@@ -110,9 +113,32 @@ extension MainPanel: NSCollectionViewDelegate, NSCollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
-        let item = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier("ClipboardItem"), for: indexPath) as! ClipboardItem
-        let content = dataSource[indexPath.item]
-        item.textLabel.attributedStringValue = content.attributedString
+        let item = collectionView.makeItem(withIdentifier: .clipboardItemID, for: indexPath) as! ClipboardItem
+        item.content = dataSource[indexPath.item]
         return item
     }
+    
+    
+    func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
+        guard let indexPath = indexPaths.first else { return }
+        let content = dataSource[indexPath.item]
+        
+        if lastContent === content {
+            return
+        }
+        
+        if let lastContent {
+            lastContent.isSelected = false
+        }
+        
+        content.isSelected = true
+        lastContent = content
+
+        collectionView.reloadData()
+    }
+}
+
+
+extension NSUserInterfaceItemIdentifier {
+    static let clipboardItemID = NSUserInterfaceItemIdentifier("ClipboardItem")
 }

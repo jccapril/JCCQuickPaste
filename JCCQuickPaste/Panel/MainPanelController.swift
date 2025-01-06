@@ -8,8 +8,6 @@
 import Cocoa
 
 class MainPanelController: NSWindowController {
-    /// 自定义面板高度
-    static let panelHeight: CGFloat = 300
     
     /// 屏幕尺寸
     static let screenFrame: NSRect = {
@@ -25,7 +23,7 @@ class MainPanelController: NSWindowController {
         let panelRect = NSRect(x: screenFrame.origin.x,
                                y: screenFrame.origin.y,
                                width: screenFrame.width,
-                               height: panelHeight)
+                               height: AppCenter.panelHeight)
         return panelRect
     }()
     

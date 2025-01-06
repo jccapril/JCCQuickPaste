@@ -45,32 +45,65 @@ class Clipboard {
             return
         }
         
-        var clipboardContent = ClipboardContent()
-        var isChange = false
-        // 获取纯文字
-        if let plainText = pasteboard.string(forType: .string) {
-            clipboardContent.plainText = plainText
-            isChange = true
-        }
-
-        // 获取 RTF 富文本
-        if let rtfData = pasteboard.data(forType: .rtf) {
-            clipboardContent.rtfData = rtfData
-            isChange = true
-//            let fileURL = URL(fileURLWithPath: "/Users/leaf/Downloads/rtf_content.rtf")
-//            do {
-//               try rtfData.write(to: fileURL)
-//            } catch {
-//                print("\(error)")
-//            }
-                
-        }
-        if isChange {
+        if let attributedString = getAttribuedString() {
+            
+            let clipboardContent = ClipboardContent()
+            clipboardContent.attributedString = attributedString
+            
             for hook in hooks {
                 hook(clipboardContent)
             }
+            
         }
-
+        
         changeCount = pasteboard.changeCount
   }
+    
+}
+
+
+// MARK: - DEBUG
+private extension Clipboard {
+    
+    /// 获取剪切板内容
+    func getAttribuedString() -> NSAttributedString? {
+        // 获取富文本（RTF）
+        if let rtfData = pasteboard.data(forType: .rtf),
+           let attributedString = NSAttributedString(rtf: rtfData, documentAttributes: nil) {
+            return attributedString
+        }
+        
+        // 获取富文本（RTFD）
+        if let rtfdData = pasteboard.data(forType: .rtfd),
+           let attributedString = NSAttributedString(rtfd: rtfdData, documentAttributes: nil) {
+            return attributedString
+        }
+
+        
+//        // 获取 HTML 文本
+//        if let htmlData = pasteboard.data(forType: .html),
+//           let attributedString = try? NSAttributedString(data: htmlData,
+//                                                         options: [.documentType: NSAttributedString.DocumentType.html],
+//                                                         documentAttributes: nil) {
+//            return attributedString
+//        }
+        
+        // 纯文本
+        if let plainText = pasteboard.string(forType: .string) {
+            let attributedString = NSAttributedString(string: plainText)
+            return attributedString
+        }
+        
+       
+        return nil
+    }
+    
+    func writeText(with rft: Data) {
+        let fileURL = URL(fileURLWithPath: "/Users/leaf/Downloads/rtf_content.rtf")
+        do {
+           try rft.write(to: fileURL)
+        } catch {
+            print("\(error)")
+        }
+    }
 }
