@@ -143,6 +143,7 @@ extension MainPanel: NSCollectionViewDelegate, NSCollectionViewDataSource {
 }
 
 
+
 extension NSUserInterfaceItemIdentifier {
     static let clipboardItemID = NSUserInterfaceItemIdentifier("ClipboardItem")
 }
