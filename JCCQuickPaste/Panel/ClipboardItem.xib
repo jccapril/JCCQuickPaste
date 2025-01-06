@@ -33,7 +33,7 @@
                         <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="p3H-s6-cns">
                             <rect key="frame" x="124" y="13" width="33" height="14"/>
                             <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="3kS-58-kTx">
-                                <font key="font" metaFont="system" size="11"/>
+                                <font key="font" metaFont="smallSystem"/>
                                 <color key="textColor" name="tertiaryLabelColor" catalog="System" colorSpace="catalog"/>
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>

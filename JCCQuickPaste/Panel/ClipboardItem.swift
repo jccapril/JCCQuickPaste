@@ -9,8 +9,6 @@ import Cocoa
 
 class ClipboardItem: NSCollectionViewItem {
     
-    
-
     @IBOutlet weak var textCountBGView: NSView!
     
     @IBOutlet weak var textLabel: NSTextField!

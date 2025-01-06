@@ -52,11 +52,28 @@ class MainPanelController: NSWindowController {
     }
 
     func showPanel() {
-        self.window?.makeKeyAndOrderFront(nil)
+        
+        if let panel = window {
+            print("Panel is initialized")
+            if panel.isVisible {
+                print("Panel is already visible")
+            } else {
+                print("Panel is not visible, attempting to show it")
+            }
+            DispatchQueue.main.async {
+                NSApp.activate()
+                panel.makeKeyAndOrderFront(nil)
+            }
+            
+        } else {
+            print("Panel is nil")
+        }
     }
 
     func hidePanel() {
-        self.window?.orderOut(nil)
+        DispatchQueue.main.async {
+            self.window?.orderOut(nil)
+        }
     }
 }
 

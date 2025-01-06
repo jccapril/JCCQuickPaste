@@ -84,6 +84,10 @@ class MainPanel: NSPanel {
         addNotificaiton()
     }
     
+    override var canBecomeKey: Bool {
+        true
+    }
+    
 }
 
 extension MainPanel {
