@@ -38,6 +38,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         requestAccessibilityPermission()
         
         showPanel()
+        
+        
     }
 
 
@@ -70,7 +72,7 @@ extension AppDelegate {
     
     func addListener() {
         addClipboardListener()
-        addKeyboardListener()
+        registerGlobalKeyDown()
     }
     
     func addClipboardListener() {
@@ -80,17 +82,7 @@ extension AppDelegate {
             NotificationCenter.default.post(name: .clipboardContentDidChange, object: nil)
         }
     }
-    
-    func addKeyboardListener() {
-        // 设置全局快捷键监听
-//        NSEvent.addGlobalMonitorForEvents(matching: .keyDown) { [weak self] event in
-//            if self?.isTriggerKey(event) == true {
-//                self?.showPanel() // 显示面板
-//            }
-//        }
-        registerGlobalKeyDown()
-    }
-    
+
     func registerGlobalKeyDown() {
         // 设置全局快捷键：Shift + Cmd + 0
         
@@ -170,26 +162,19 @@ private extension AppDelegate {
     
     
 
-    @objc func openPanel() {
+    @objc
+    func openPanel() {
         showPanel()
     }
 
-    @objc func terminateApp() {
+    @objc
+    func terminateApp() {
         NSApplication.shared.terminate(nil)
     }
     
     
 }
 
-// MARK: - 按键监控
-private extension AppDelegate {
-    
-    // 判断是否是自定义快捷键 (Command + Option + O)
-    func isTriggerKey(_ event: NSEvent) -> Bool {
-        return event.modifierFlags.contains([.command, .shift]) && event.charactersIgnoringModifiers == "0"
-    }
-    
-}
 
 // MARK: - Permission
 private extension AppDelegate {

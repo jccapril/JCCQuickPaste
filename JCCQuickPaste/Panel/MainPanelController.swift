@@ -30,38 +30,14 @@ class MainPanelController: NSWindowController {
     private var collectionView: NSCollectionView!
     
     init() {
-
         // 创建 NSPanel
         let panel = MainPanel(contentRect: Self.panelRect,
-                            styleMask: [.borderless],
+                              styleMask: [.borderless, .nonactivatingPanel],
                             backing: .buffered,
                             defer: false)
-        panel.isFloatingPanel = true                   // 设置为浮动窗口
-        panel.level = .mainMenu                        // 覆盖 Dock 栏
-        panel.hasShadow = true                         // 禁用阴影（根据需要启用）
-        panel.isMovableByWindowBackground = false      // 禁止拖动
-//        panel.backgroundColor = NSColor.white        // 背景色
-        
         
         // 初始化 NSWindowController
         super.init(window: panel)
-        panel.delegate = self
-        
-        
-//        // 监听局部键盘事件
-//        NSEvent.addLocalMonitorForEvents(matching: .keyDown) {[weak self] (event) -> NSEvent? in
-//            guard let self else { return event}
-//            if self.isTriggerKey(event) == true {
-//                guard let panel = self.window else { return event }
-//                if panel.isVisible {
-//                    self.hidePanel()
-//                }else {
-//                    self.showPanel()
-//                }
-//                
-//            }
-//            return event
-//        }
 
     }
 
@@ -83,9 +59,6 @@ class MainPanelController: NSWindowController {
                     panel.makeKeyAndOrderFront(nil)
                 }
             }
-            
-            
-            
         } else {
             print("Panel is nil")
         }
@@ -99,23 +72,3 @@ class MainPanelController: NSWindowController {
 }
 
 
-// MARK: - 按键监控
-private extension MainPanelController {
-    
-    // 判断是否是自定义快捷键 (Command + Option + O)
-    func isTriggerKey(_ event: NSEvent) -> Bool {
-        return event.modifierFlags.contains([.command, .shift]) && event.charactersIgnoringModifiers == "0"
-    }
-    
-}
-
-
-extension MainPanelController: NSWindowDelegate {
-    // 当面板失去键盘焦点时触发
-    func windowDidResignKey(_ notification: Notification) {
-        print("Panel lost focus")
-        if let panel = window {
-            panel.orderOut(nil)
-        }
-    }
-}

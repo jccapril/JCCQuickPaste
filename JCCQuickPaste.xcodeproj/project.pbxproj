@@ -30,11 +30,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		116965D92D27CBB00050CA5E /* JCCQuickPaste */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = JCCQuickPaste;
-			sourceTree = "<group>";
-		};
 		116965EB2D27CBB10050CA5E /* JCCQuickPasteTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = JCCQuickPasteTests;
@@ -43,6 +38,11 @@
 		116965F52D27CBB10050CA5E /* JCCQuickPasteUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = JCCQuickPasteUITests;
+			sourceTree = "<group>";
+		};
+		11DC84762D2CF78E002D6D07 /* JCCQuickPaste */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = JCCQuickPaste;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -75,7 +75,7 @@
 		116965CE2D27CBB00050CA5E = {
 			isa = PBXGroup;
 			children = (
-				116965D92D27CBB00050CA5E /* JCCQuickPaste */,
+				11DC84762D2CF78E002D6D07 /* JCCQuickPaste */,
 				116965EB2D27CBB10050CA5E /* JCCQuickPasteTests */,
 				116965F52D27CBB10050CA5E /* JCCQuickPasteUITests */,
 				116965D82D27CBB00050CA5E /* Products */,
@@ -108,7 +108,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				116965D92D27CBB00050CA5E /* JCCQuickPaste */,
+				11DC84762D2CF78E002D6D07 /* JCCQuickPaste */,
 			);
 			name = JCCQuickPaste;
 			packageProductDependencies = (
@@ -400,7 +400,7 @@
 				DEVELOPMENT_TEAM = 4R855GB33C;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_LSBackgroundOnly = NO;
+				INFOPLIST_KEY_LSBackgroundOnly = YES;
 				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSAppleEventsUsageDescription = "This app requires access to keyboard events to provide global hotkey functionality.";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -431,7 +431,7 @@
 				DEVELOPMENT_TEAM = 4R855GB33C;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_LSBackgroundOnly = NO;
+				INFOPLIST_KEY_LSBackgroundOnly = YES;
 				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSAppleEventsUsageDescription = "This app requires access to keyboard events to provide global hotkey functionality.";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";

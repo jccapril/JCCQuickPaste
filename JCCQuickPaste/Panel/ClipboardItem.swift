@@ -55,6 +55,12 @@ extension ClipboardItem {
         textCountBGView.wantsLayer = true
         // 设置默认背景颜色
         textCountBGView.layer?.backgroundColor = NSColor.white.withAlphaComponent(0.3).cgColor
-        
+     
+//        // 添加双击手势
+//        let doubleClickGesture = NSClickGestureRecognizer(target: self, action: #selector(handleDoubleClick))
+//        doubleClickGesture.numberOfClicksRequired = 2
+//        view.addGestureRecognizer(doubleClickGesture)
     }
 }
+
+
