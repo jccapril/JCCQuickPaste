@@ -57,7 +57,6 @@ class MainPanelController: NSWindowController {
             } else {
                 print("Panel is not visible, attempting to show it")
                 DispatchQueue.main.async {
-                    NSApp.activate()
                     panel.makeKeyAndOrderFront(nil)
                 }
             }

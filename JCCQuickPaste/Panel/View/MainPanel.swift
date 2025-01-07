@@ -95,9 +95,6 @@ class MainPanel: NSPanel {
     override var canBecomeKey: Bool {
         true
     }
-    
-
-    
 }
 
 // MARK: - Notification
