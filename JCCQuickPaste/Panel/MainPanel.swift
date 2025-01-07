@@ -182,12 +182,6 @@ private extension MainPanel {
         event.post(tap: .cgAnnotatedSessionEventTap)
         print("已发送字符串: \(text)")
     }
-    
-    func hidePanel() {
-        DispatchQueue.main.async {
-            self.orderOut(nil)
-        }
-    }
 }
 
 
@@ -195,7 +189,9 @@ private extension MainPanel {
 extension MainPanel: NSWindowDelegate {
     // 当面板失去键盘焦点时触发
     func windowDidResignKey(_ notification: Notification) {
-        hidePanel()
+        DispatchQueue.main.async {
+            self.orderOut(nil)
+        }
     }
 }
 

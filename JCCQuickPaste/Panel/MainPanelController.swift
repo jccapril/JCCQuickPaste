@@ -51,7 +51,9 @@ class MainPanelController: NSWindowController {
             print("Panel is initialized")
             if panel.isVisible {
                 print("Panel is already visible")
-                hidePanel()
+                DispatchQueue.main.async {
+                    self.window?.orderOut(nil)
+                }
             } else {
                 print("Panel is not visible, attempting to show it")
                 DispatchQueue.main.async {
@@ -61,12 +63,6 @@ class MainPanelController: NSWindowController {
             }
         } else {
             print("Panel is nil")
-        }
-    }
-
-    func hidePanel() {
-        DispatchQueue.main.async {
-            self.window?.orderOut(nil)
         }
     }
 }
