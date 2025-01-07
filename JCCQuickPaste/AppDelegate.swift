@@ -141,8 +141,8 @@ private extension AppDelegate {
         
         // 创建菜单
         statusMenu = NSMenu()
-        statusMenu.addItem(NSMenuItem(title: "打开面板", action: #selector(openPanel), keyEquivalent: "o"))
-        statusMenu.addItem(NSMenuItem.separator())
+//        statusMenu.addItem(NSMenuItem(title: "打开面板", action: #selector(openPanel), keyEquivalent: "o"))
+//        statusMenu.addItem(NSMenuItem.separator())
         statusMenu.addItem(NSMenuItem(title: "退出", action: #selector(terminateApp), keyEquivalent: "q"))
     }
     
@@ -160,12 +160,6 @@ private extension AppDelegate {
         }
     }
     
-    
-
-    @objc
-    func openPanel() {
-        showPanel()
-    }
 
     @objc
     func terminateApp() {
