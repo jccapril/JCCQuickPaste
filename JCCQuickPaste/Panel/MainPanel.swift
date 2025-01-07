@@ -100,12 +100,8 @@ class MainPanel: NSPanel {
     
 }
 
+// MARK: - Notification
 extension MainPanel {
-    
-    func initializeUI() {
-        contentView?.addSubview(titleLabel)
-        contentView?.addSubview(scrollView)
-    }
     
     func addNotificaiton() {
         NotificationCenter.default.addObserver(self, selector: #selector(dataSourceDidChange), name: .clipboardContentDidChange, object: nil)
@@ -120,7 +116,17 @@ extension MainPanel {
     
 }
 
+// MARK: - UI
+extension MainPanel {
+    
+    func initializeUI() {
+        contentView?.addSubview(titleLabel)
+        contentView?.addSubview(scrollView)
+    }
+    
+}
 
+// MAKR: - NSCollectionViewDelegate, NSCollectionViewDataSource, JQCollectionViewDelegate
 extension MainPanel: NSCollectionViewDelegate, NSCollectionViewDataSource, JQCollectionViewDelegate {
     
 
