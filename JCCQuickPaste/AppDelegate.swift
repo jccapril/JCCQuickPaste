@@ -133,7 +133,7 @@ private extension AppDelegate {
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
 
         if let button = statusItem.button {
-            button.image = NSImage(systemSymbolName: "paperclip", accessibilityDescription: "Clipboard") // 可选图标
+            button.image = NSImage(systemSymbolName: "list.clipboard", accessibilityDescription: "Clipboard") // 可选图标
             button.target = self
             button.action = #selector(statusBarItemClicked) // 左键单击事件
             button.sendAction(on: [.leftMouseUp, .rightMouseUp]) // 同时监听左右键
