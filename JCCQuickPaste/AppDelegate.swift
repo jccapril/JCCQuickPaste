@@ -6,17 +6,26 @@
 //
 
 import Cocoa
+import Carbon
 
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
 
+
     var mainPanelController: MainPanelController!
 
+    /// 剪切板
     let clipboard = Clipboard()
     
+    /// 状态栏
     var statusItem: NSStatusItem!
     
     var statusMenu: NSMenu!
+    
+    /// 全局快捷键
+    var globalHotKeyID = EventHotKeyID()
+    var globalHotKeyRef: EventHotKeyRef?
+    
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         
@@ -35,6 +44,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func applicationWillTerminate(_ aNotification: Notification) {
         mainPanelController = nil
+        // 取消注册快捷键
+        if let hotKeyRef = globalHotKeyRef {
+            UnregisterEventHotKey(hotKeyRef)
+        }
     }
 
     func applicationSupportsSecureRestorableState(_ app: NSApplication) -> Bool {
@@ -70,15 +83,54 @@ extension AppDelegate {
     
     func addKeyboardListener() {
         // 设置全局快捷键监听
-        NSEvent.addGlobalMonitorForEvents(matching: .keyDown) { [weak self] event in
-            if self?.isTriggerKey(event) == true {
-                self?.showPanel() // 显示面板
-            }
-        }
+//        NSEvent.addGlobalMonitorForEvents(matching: .keyDown) { [weak self] event in
+//            if self?.isTriggerKey(event) == true {
+//                self?.showPanel() // 显示面板
+//            }
+//        }
+        registerGlobalKeyDown()
     }
     
+    func registerGlobalKeyDown() {
+        // 设置全局快捷键：Shift + Cmd + 0
+        
+        globalHotKeyID.signature = OSType("htk1".utf8.reduce(0) { ($0 << 8) | UInt32($1) })
+        globalHotKeyID.id = UInt32(1)
+        
+        let modifiers: UInt32 = UInt32(cmdKey | shiftKey) // Cmd + Shift
+        let keyCode: UInt32 = 29                 // 0 键的 keyCode
+        
+        // 注册快捷键
+        let status = RegisterEventHotKey(keyCode, modifiers, globalHotKeyID, GetApplicationEventTarget(), 0, &globalHotKeyRef)
+        if status != noErr {
+            print("注册快捷键失败")
+            return
+        }
+        
+        // 安装事件处理器
+        var eventSpec = EventTypeSpec(eventClass: OSType(kEventClassKeyboard), eventKind: UInt32(kEventHotKeyPressed))
+        
+        InstallEventHandler(GetApplicationEventTarget(), hotKeyHandler, 1, &eventSpec, Unmanaged.passUnretained(self).toOpaque(), nil)
+        
+        print("快捷键注册成功")
+    }
+
     
-    
+}
+
+// 回调函数：处理快捷键事件
+private func hotKeyHandler(nextHandler: EventHandlerCallRef?, event: EventRef?, userData: UnsafeMutableRawPointer?) -> OSStatus {
+    guard let event = event else { return noErr }
+
+    let eventKind = GetEventKind(event)
+    if eventKind == kEventHotKeyPressed {
+        // 快捷键触发，执行操作
+        DispatchQueue.main.async {
+            let appDelegate = NSApplication.shared.delegate as? AppDelegate
+            appDelegate?.showPanel()
+        }
+    }
+    return noErr
 }
 
 // MARK: - Status
@@ -134,7 +186,7 @@ private extension AppDelegate {
     
     // 判断是否是自定义快捷键 (Command + Option + O)
     func isTriggerKey(_ event: NSEvent) -> Bool {
-        return event.modifierFlags.contains([.command, .option]) && event.charactersIgnoringModifiers == "z"
+        return event.modifierFlags.contains([.command, .shift]) && event.charactersIgnoringModifiers == "0"
     }
     
 }

@@ -45,10 +45,10 @@ class MainPanelController: NSWindowController {
         
         // 初始化 NSWindowController
         super.init(window: panel)
-//        panel.delegate = self
+        panel.delegate = self
         
         
-        // 监听局部键盘事件
+//        // 监听局部键盘事件
 //        NSEvent.addLocalMonitorForEvents(matching: .keyDown) {[weak self] (event) -> NSEvent? in
 //            guard let self else { return event}
 //            if self.isTriggerKey(event) == true {
@@ -75,14 +75,16 @@ class MainPanelController: NSWindowController {
             print("Panel is initialized")
             if panel.isVisible {
                 print("Panel is already visible")
+                hidePanel()
             } else {
                 print("Panel is not visible, attempting to show it")
+                DispatchQueue.main.async {
+                    NSApp.activate()
+                    panel.makeKeyAndOrderFront(nil)
+                }
             }
             
-            DispatchQueue.main.async {
-                NSApp.activate()
-                panel.makeKeyAndOrderFront(nil)
-            }
+            
             
         } else {
             print("Panel is nil")
@@ -102,19 +104,18 @@ private extension MainPanelController {
     
     // 判断是否是自定义快捷键 (Command + Option + O)
     func isTriggerKey(_ event: NSEvent) -> Bool {
-        return event.modifierFlags.contains([.command, .option]) && event.charactersIgnoringModifiers == "z"
+        return event.modifierFlags.contains([.command, .shift]) && event.charactersIgnoringModifiers == "0"
     }
     
 }
 
 
-//extension MainPanelController: NSWindowDelegate {
-//    // 当面板失去键盘焦点时触发
-//    func windowDidResignKey(_ notification: Notification) {
-//        print("Panel lost focus")
-//        if let panel = window {
-//            panel.orderOut(nil)
-//        }
-//       
-//    }
-//}
+extension MainPanelController: NSWindowDelegate {
+    // 当面板失去键盘焦点时触发
+    func windowDidResignKey(_ notification: Notification) {
+        print("Panel lost focus")
+        if let panel = window {
+            panel.orderOut(nil)
+        }
+    }
+}
