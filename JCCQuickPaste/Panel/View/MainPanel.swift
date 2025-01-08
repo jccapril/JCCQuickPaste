@@ -90,10 +90,21 @@ class MainPanel: NSPanel {
         
         initializeUI()
         addNotificaiton()
+        loadDataSource()
     }
     
     override var canBecomeKey: Bool {
         true
+    }
+}
+
+
+// MARK: - Data
+extension MainPanel {
+    func loadDataSource() {
+        Task {
+            await AppCenter.Cloud.query(.clipboardHistory)
+        }
     }
 }
 

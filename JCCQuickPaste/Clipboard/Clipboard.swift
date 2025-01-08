@@ -54,6 +54,9 @@ class Clipboard {
                 hook(clipboardContent)
             }
             
+            Task {
+               await AppCenter.Cloud.save(.clipboardHistory, content: attributedString.string)
+            }
         }
         
         changeCount = pasteboard.changeCount
